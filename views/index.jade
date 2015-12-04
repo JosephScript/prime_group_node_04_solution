@@ -1,5 +1,31 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    .jumbotron
+      h1= title
+      p Welcome to #{title} Here you can generate 20 random people. Once they have been generated, they are stored in the mongo database and retrieved each subsequent time. You only get one chance!
+
+      h2 Press this button to get the party started!
+
+      p
+        button.btn.btn-primary.btn-lrg#generate Gimme dem peeps
+
+    .alert.alert-danger#error
+      span.glyphicon.glyphicon-exclamation-sign(aria-hidden="true")
+      span.sr-only ERROR:
+      label#error-content
+
+    table.table.table-hover#peeps
+      thead
+        tr
+          th Name
+
+          th Age
+
+          th Sex
+
+          th Location
+
+          th Twitter Handle
+      tbody
