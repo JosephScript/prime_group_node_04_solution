@@ -1,7 +1,48 @@
-# Solution Notes
+# Solution 
+
+## Structure:
+
+Project structure follows the typical Express-Generator format with some additions. All random generator modules are in the `/modules` folder. The user class contructor, along with all of it's database methods are inside of the `/models/user.js` file. Users are generated upon first request inside of the `/routes/users/js` file. If the users already exist, we just return the original users instead. Finally, all of the jQuery and Ajax occurs in the `/public/javascripts/randomHumanGenerator.js` file.
+
+``` 
+.
+├── app.js
+├── bin
+│   └── www
+├── models
+│   └── user.js
+├── modules
+│   ├── age.js
+│   ├── generator.js
+│   ├── location.js
+│   ├── name.js
+│   ├── sex.js
+│   └── twitterHandle.js
+├── package.json
+├── public
+│   └── javascripts
+│       └── randomHumanGenerator.js
+├── routes
+│   ├── index.js
+│   └── users.js
+└── views
+    ├── error.jade
+    ├── index.jade
+    └── layout.jade
+```
+
+## Installation instructions
+
+After you have cloned/forked, be sure to run `npm install` to install 3rd party dependencies. 
+
+Inside the file `/models/user.js` be sure to change `const MONGO_DB = 'mongodb://localhost:27017/exampleDb';` to your MongoDB URL.
 
 
+## Notes
 
+The `/models/user.js` file uses the newer ES6 constructor format. For notes on this, read https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes.
+
+The route `/routes/users.js` uses the method `getAll()` in `/models/user.js` to check if there are any existing users. If so it just sends them back to the response. If not, the route uses the `/modules/generator.js` file and passes in a number of users to create. That file then requires all other needed modules for random generation. Once the users have been generated and returned back to the route, the route then uses the method `batchCreate()` in `/models/user.js` to create them in the database and sends the objects back to the response.
 
 # Node/Express/Mongo Group Challenge
 
