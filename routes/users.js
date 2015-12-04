@@ -21,10 +21,10 @@ router.get('/', function (req, res, next) {
         // insert them to the database
         User.batchCreate(users, function (err, results) {
           if (err) {
-            return next(results);
+            return next(err);
           } else {
             // return the users
-            return res.json(results);
+            return res.json(users);
           }
 
         })

@@ -1,4 +1,10 @@
+# Solution Notes
+
+
+
+
 # Node/Express/Mongo Group Challenge
+
 Welcome to this week's group challenge! 
 
 In this challenge, you will be building an application that uses jQuery, Node, Express, and MongoDB. 
