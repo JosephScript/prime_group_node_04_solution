@@ -1,8 +1,10 @@
 # Solution 
 
-## Structure:
+## Structure
 
-Project structure follows the typical Express-Generator format with some additions. All random generator modules are in the `/modules` folder. The user class contructor, along with all of it's database methods are inside of the `/models/user.js` file. Users are generated upon first request inside of the `/routes/users/js` file. If the users already exist, we just return the original users instead. Finally, all of the jQuery and Ajax occurs in the `/public/javascripts/randomHumanGenerator.js` file.
+Project structure follows the typical Express-Generator format with some additions. All random generator modules are in the `/modules` folder. The user class cconstructor along with all of it's database methods are inside of the `/models/user.js` file. Users are sent to the request inside of the `/routes/users/js` file. Finally, all of the jQuery and Ajax occurs in the `/public/javascripts/randomHumanGenerator.js` file.
+
+See Notes below for more information.
 
 ``` 
 .
